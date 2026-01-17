@@ -35,9 +35,33 @@ def get_message(steps, goal=6000):
 
 def main():
     steps = read_steps()
+    log_steps(steps)
     message = get_message(steps)
     print(f"Today's steps: {steps}")
     print(message)
 
 if __name__ == "__main__":
     main()
+
+import csv
+import random
+from datetime import date
+
+def log_steps(steps, filename="log.csv"):
+    """Append today's steps to the log file."""
+    today = date.today().isoformat()
+
+    # Check if file exists and needs a header
+    try:
+        with open(filename, "r") as file:
+            pass  # File exists, do nothing
+    except FileNotFoundError:
+        # Create file with header
+        with open(filename, "w", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow(["date", "steps"])
+
+    # Append today's entry
+    with open(filename, "a", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow([today, steps])
