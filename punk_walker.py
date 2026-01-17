@@ -34,7 +34,7 @@ def get_message(steps, goal=6000):
         return random.choice(MESSAGES["high"])
 
 def main():
-    steps = read_steps()
+    steps = int(input("Enter today's steps: "))
     log_steps(steps)
     message = get_message(steps)
     print(f"Today's steps: {steps}")
