@@ -8,7 +8,7 @@ Punk Walker is a simple, attitude-heavy step tracker designed to keep you moving
 - Responds with a punk-style motivational message
 
 ## Example Messages
-- "Move your boots, old man."
+- "Move your boots, make the change."
 - "You're not dead yet — keep walking."
 - "Punk isn't about sitting still."
 - "You hit your goal. Respect."
