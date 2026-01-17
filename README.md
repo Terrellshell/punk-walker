@@ -28,3 +28,11 @@ date,steps
 - Basic logic and conditionals
 - Writing simple functions
 - Using GitHub for version control
+
+## New Tier-2 Feature: Daily Logging
+Punk Walker now keeps a daily log of your steps in `log.csv`.
+
+Each time you run the script:
+- It records today's date
+- It appends your step count
+- It builds a history for future stats
