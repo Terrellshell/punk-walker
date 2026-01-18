@@ -46,11 +46,9 @@ if __name__ == "__main__":
 import csv
 import random
 from datetime import date
-
 def log_steps(steps, filename="log.csv"):
     """Append today's steps to the log file."""
     today = date.today().isoformat()
-
     # Check if file exists and needs a header
     try:
         with open(filename, "r") as file:
