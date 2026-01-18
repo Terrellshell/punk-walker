@@ -65,3 +65,4 @@ def log_steps(steps, filename="log.csv"):
     with open(filename, "a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([today, steps])
+
