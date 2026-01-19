@@ -19,22 +19,6 @@ MESSAGES = {
     ]
 }
 
-def read_steps(filename="steps.csv"):
-    with open(filename, "r") as file:
-        reader = csv.DictReader(file)
-        rows = list(reader)
-        return int(rows[-1]["steps"])
-
-def get_message(steps, goal=6000):
-    if steps < goal * 0.5:
-        return random.choice(MESSAGES["low"])
-    elif steps < goal:
-        return random.choice(MESSAGES["medium"])
-    else:
-        return random.choice(MESSAGES["high"])
-
-from datetime import date
-
 def log_steps(steps, filename="log.csv"):
     """Append today's steps to the log file."""
     today = date.today().isoformat()
@@ -53,6 +37,15 @@ def log_steps(steps, filename="log.csv"):
     with open(filename, "a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([today, steps])
+        
+def get_message(steps, goal=6000):
+    if steps < goal * 0.5:
+        return random.choice(MESSAGES["low"])
+    elif steps < goal:
+        return random.choice(MESSAGES["medium"])
+    else:
+        return random.choice(MESSAGES["high"])
+
 def main():
     steps = int(input("Enter today's steps: "))
     log_steps(steps)
