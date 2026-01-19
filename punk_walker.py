@@ -1,5 +1,6 @@
 import csv
 import random
+from datetime import date
 
 MESSAGES = {
     "low": [
@@ -26,9 +27,8 @@ def log_steps(steps, filename="log.csv"):
     # Check if file exists and needs a header
     try:
         with open(filename, "r") as file:
-            pass  # File exists, do nothing
+            pass
     except FileNotFoundError:
-        # Create file with header
         with open(filename, "w", newline="") as file:
             writer = csv.writer(file)
             writer.writerow(["date", "steps"])
@@ -37,7 +37,7 @@ def log_steps(steps, filename="log.csv"):
     with open(filename, "a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([today, steps])
-        
+
 def get_message(steps, goal=6000):
     if steps < goal * 0.5:
         return random.choice(MESSAGES["low"])
@@ -55,6 +55,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
