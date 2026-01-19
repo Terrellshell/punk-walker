@@ -33,21 +33,6 @@ def get_message(steps, goal=6000):
     else:
         return random.choice(MESSAGES["high"])
 
-def log_steps(steps, filename="log.csv"):
-    """Append today's steps to the log file."""
-    today = date.today().isoformat()
-def main():
-    steps = int(input("Enter today's steps: "))
-    log_steps(steps)
-    message = get_message(steps)
-    print(f"Today's steps: {steps}")
-    print(message)
-
-if __name__ == "__main__":
-    main()
-
-import csv
-import random
 from datetime import date
 
 def log_steps(steps, filename="log.csv"):
@@ -68,5 +53,15 @@ def log_steps(steps, filename="log.csv"):
     with open(filename, "a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([today, steps])
+def main():
+    steps = int(input("Enter today's steps: "))
+    log_steps(steps)
+    message = get_message(steps)
+    print(f"Today's steps: {steps}")
+    print(message)
+
+if __name__ == "__main__":
+    main()
+
 
 
